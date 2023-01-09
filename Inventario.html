@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+    <script src="./index.js"></script>
+
+    <title>Inventario</title>
+
+    <body onload="checkLogin()">
+
+    <header>
+        
+        <nav class="navbar navbar-light bg-light navbar-expand">
+            <a href="./Index.html"><img src="./assets/logo2.png" alt="Logo de la empresa"></a>
+            <div class="collapse navbar-collapse container">
+                <ul class="navbar-nav mx-auto">
+      
+      
+                <li class="nav-item">
+                    <a class="nav-link" href="./pages/Inventario.html">Inventario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./pages/Usuarios.html">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./pages/Historial.html">Historial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./pages/Resumen.html">Resumen</a>
+                </li>
+                </ul>
+                <form class="form-inline navbar-nav">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                </form>
+            </div>
+      
+        </nav>
+      
+      </header>
+    
+
+      <button onclick="mostrarVentanaEmergente()">Agregar Activo</button>
+      <!-- Ventana emergente oculta inicialmente -->
+        <div id="miVentanaEmergente" style="display: none;">
+      <!-- Contenido de la ventana emergente -->
+
+    <button onclick="OcultarAddLaptop()">Ocultar</button>
+    <div class="form-group">
+      <form>
+
+      
+        <div>
+            <label for="CodInternoInput">
+                <input type="text"  class="form-control" id="CodInternoInput" placeholder="Codigo Interno">
+            </label>
+            <label for="EstadoInput">
+                <input type="text"  class="form-control" id="EstadoInput" placeholder="Estado">
+            </label>
+            <label for="Usuarioinput">
+                <input type="text" class="form-control" id="Usuarioinput" placeholder="Nombre de usuario">
+            </label>
+        </div>
+        <div>
+            <label for="UbicacionInput">
+                <input type="text" class="form-control" id="UbicacionInput" placeholder="Ubicacion">
+            </label>
+            <label for="MarcaInput">
+                <input type="text" class="form-control" id="MarcaInput" placeholder="Marca-Modelo">
+            </label>
+            <label for="NserieInput">
+                <input type="text" class="form-control" id="NserieInput" placeholder="N° de serie">
+            </label>
+        </div>
+        <div>
+            <label for="CaracteristicasInput">
+                <input type="text" class="form-control" id="CaracteristicasInput" placeholder="Hardware">
+            </label>
+        
+            <label for="CategoriaInput">
+                <input type="text" class="form-control" id="CategoriaInput" placeholder="Categoria (1 al 6)">
+            </label>
+            <label for="CondicionInput">
+                <input type="text" class="form-control" id="CondicionInput" placeholder="Condición">
+            </label>
+        </div>
+           
+      </form>
+    </div>
+    <div>
+        <button id="saveButton" onclick="GuardarLaptop()">Guardar</button>
+    </div>
+</div>
+
+  <div class="table-responsive-xl" >
+    <table id="laptop-table" class="table table-hover">
+        <thead>
+        <tr class="table-active">
+          <th scope="col">#</th>
+          <th scope="col">Indice</th>
+          <th scope="col">Codigo Interno</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Ubicación</th>
+          <th scope="col">Marca y modelo</th>
+          <th scope="col">N° de Serie</th>
+          <th scope="col">Características</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Condición</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+
+
+
+    <script src="./Inventario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/boot
+</body>
+</html>
