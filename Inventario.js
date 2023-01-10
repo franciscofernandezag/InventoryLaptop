@@ -1,11 +1,11 @@
-// El siguiente programa esta basado en un inventario de Laptop que utilizo en mi trabajo actulamente en planilla excel. Como proyecto final pretendo hacer un programa de ese inventario en JS y HTML.
-    // Arreglo de objetos: Defini un arreglo de objeto con los datos del inventario y agrege 15 objetos con push dentro del programa.
-    // Todas las salidas se visualizan con "console.table"
-    // Agregar nuevos productos: Se realizo una funcion para agregar nuevos productos con un ciclo while que consulta si quiere agregar mas items.
-    // Eliminar Items : Se realizo una funcion para eliminar Items del inventario seleccionados por el indice.
-    // Actualizar inventario: Se realizo una funcion para actualizar inventario. Usuario debe seleccionar indice de elemento a modificar y luego ingresar con prompt que items desea actualizar. Luego debe ingresar con prompt la actualizacion.
-    // Filtrar productos por items ( Estado, ubicacion, etc)
-    // Finalmente se realizan una serie de preguntas para acceder a las funciones creadas.
+// Hola Angeles buenas noches, adjunto mi tercera entrega. indico algunos detalles:
+// 1. Se trata de un programa de inventario de laptop.
+// 2. En la entrega anterior se actualizo el programa de la segunda PreEntrega. En esta entrega se agregó la función de “Agregar activo” al DOM , LocalStorage  y se realizó la estructura HTML con eventos solo para “Agregar Activos”
+// 3.En esta función se creó la estructura de login (guardado en localstorage) puedes ingresar con las credenciales: usuario: angeles , Pass=12345 o también con usuario: francisco con Pass: 123.
+// 4. El login se creó con la opcion de que no se puede navegar por la página principal ( inventario.html) sin ingreso de login ( index.html). Si ingresas directamente a inventario sin logearte , se redirigirá al login.
+// 5.  En la pagina de inventario se agregó un botón desplegable q permite agregar un nuevo activo. El mismo desplegable se puede ocultar con un botón también.
+// 6. Tanto el “login” como la pagina “inventario” se maqueto en html con Bootstrap y Sweet Alert.
+// 7. Hay algo en el programa que no pude solucionar. Se trata del índice de los equipos que se van agregando. El índice corre bien a medida que se agregan nuevos activos, pero al momento de “recargar la pagina con F5” o bien abrir una nueva , al momento de agregar un nuevo activo el índice se pierde , volviendo al índice del arreglo base. Todo lo demás continua bien y guardado en local Storage.
 
 
       //Funcion de botones para desplegar ventana de agregar activos
@@ -34,12 +34,8 @@
       }
 
              //Cargar datos de inicio al arreglo
-            
              // Guardar la cadena de texto en el localStorage con condicional para no soobrescribir localstorage
          const laptop = [];
-         let indice = 15; // El índice parte en 15
-
-        
 
           if (laptop.length === 0 ){
       
@@ -153,238 +149,209 @@ document.getElementById('laptop-table').innerHTML += rowN;
 
     // Funcion para Eliminar Laptop de Inventario
 
-    function DelLaptop() {
+//     function DelLaptop() {
 
-      let indice = Number(prompt("Ingrese Indice (Index) de producto a eliminar"));
+//       let indice = Number(prompt("Ingrese Indice (Index) de producto a eliminar"));
 
-      if (indice > laptop.length) {
-        alert("El indice no existe");
-        return;
-      }
+//       if (indice > laptop.length) {
+//         alert("El indice no existe");
+//         return;
+//       }
 
-      if (isNaN(indice)) {
-        alert("El indice no existe");
-        return;
-      }
+//       if (isNaN(indice)) {
+//         alert("El indice no existe");
+//         return;
+//       }
 
-        for (let i = 0; i <= laptop.length; i++) {
-          if (i === indice) {
-            const deleteindex = laptop[i];
-            laptop.splice(i, 1);
-            console.log("Se a Eliminado el siguiente producto: " + deleteindex.CodigoInv)
-            console.log(" Tabla actualizada a la fecha :  " + new Date());
-            console.table(laptop);
-            break;
-          }
+//         for (let i = 0; i <= laptop.length; i++) {
+//           if (i === indice) {
+//             const deleteindex = laptop[i];
+//             laptop.splice(i, 1);
+//             console.log("Se a Eliminado el siguiente producto: " + deleteindex.CodigoInv)
+//             console.log(" Tabla actualizada a la fecha :  " + new Date());
+//             console.table(laptop);
+//             break;
+//           }
 
-        }
-    }
+//         }
+//     }
 
-// Funcion para actualizar inventario
+// // Funcion para actualizar inventario
 
-    function ModLaptop() {
+//     function ModLaptop() {
 
-        const index = prompt("ingrese indice de producto a modificar (Ejemplo: 1, 2, 3 ,4 ....");
-        const objeto = laptop[index];
+//         const index = prompt("ingrese indice de producto a modificar (Ejemplo: 1, 2, 3 ,4 ....");
+//         const objeto = laptop[index];
 
-        let repeticion = true;
+//         let repeticion = true;
 
-        while(repeticion){
+//         while(repeticion){
 
-            const New = prompt("Indique Items a actualizar: Usuario , Ubicacion , Caracteristicas , Categoria , Condicion");
+//             const New = prompt("Indique Items a actualizar: Usuario , Ubicacion , Caracteristicas , Categoria , Condicion");
 
-            switch (New) {
+//             switch (New) {
 
-              case 'Usuario':
-                const NewUser = prompt("Ingrese nuevo nombre de usuario");
-                objeto.Usuario = NewUser;
-                console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    al siguiente propietario:  " + NewUser )
-                break;
+//               case 'Usuario':
+//                 const NewUser = prompt("Ingrese nuevo nombre de usuario");
+//                 objeto.Usuario = NewUser;
+//                 console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    al siguiente propietario:  " + NewUser )
+//                 break;
 
-              case 'Ubicacion':
-                    const NewUbic = prompt("Ingrese nueva ubicacion");
-                    objeto.Ubicacion = NewUbic;
-                    console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la siguiente Ubicacion:  " + NewUbic )
-                break;
+//               case 'Ubicacion':
+//                     const NewUbic = prompt("Ingrese nueva ubicacion");
+//                     objeto.Ubicacion = NewUbic;
+//                     console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la siguiente Ubicacion:  " + NewUbic )
+//                 break;
 
-              case 'Caracteristicas':
-                  const NewCaract = prompt("Ingrese nueva caracteristica de hardware ");
-                  objeto.Caracteristicas = NewCaract;
-                  console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la caracteristica de Hardware:  " + NewCaract )
-                break;
+//               case 'Caracteristicas':
+//                   const NewCaract = prompt("Ingrese nueva caracteristica de hardware ");
+//                   objeto.Caracteristicas = NewCaract;
+//                   console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la caracteristica de Hardware:  " + NewCaract )
+//                 break;
 
-              case 'Categoria':
-                    const NewCategoria = prompt("Ingrese nueva categoria");
-                    objeto.Categoria = NewCategoria;
-                    console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la categoria:  " + NewCategoria )
-               break;
+//               case 'Categoria':
+//                     const NewCategoria = prompt("Ingrese nueva categoria");
+//                     objeto.Categoria = NewCategoria;
+//                     console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la categoria:  " + NewCategoria )
+//                break;
 
-              case 'Condicion':
-                const NewCondicion = prompt("Ingrese nueva condicion de equipo");
-                objeto.Condicion = NewCondicion;
-                console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la condicion:  " + NewCondicion )
-              break;
+//               case 'Condicion':
+//                 const NewCondicion = prompt("Ingrese nueva condicion de equipo");
+//                 objeto.Condicion = NewCondicion;
+//                 console.log("Usted a actualizado el producto: " + laptop[index].CodigoInv + "    A la condicion:  " + NewCondicion )
+//               break;
 
-                default:
-                alert("No es un Items valido");
-                console.log("No es un Items valido");
+//                 default:
+//                 alert("No es un Items valido");
+//                 console.log("No es un Items valido");
 
 
-            }
+//             }
 
-            repeticion = confirm("¿Desea actualizar otro Parametro del equipo o producto?")
+//             repeticion = confirm("¿Desea actualizar otro Parametro del equipo o producto?")
 
-            if( repeticion === false){
+//             if( repeticion === false){
 
-              break;
-            }
-            }
+//               break;
+//             }
+//             }
 
-            console.log(" Tabla actualizada a la fecha :  " + new Date());
-            console.table(laptop);
+//             console.log(" Tabla actualizada a la fecha :  " + new Date());
+//             console.table(laptop);
 
-    }
+//     }
 
-// Funcion para filtrar equipos en base a un items en especifico (  Estado , Usuario , Ubicacion ,MarcaModelo, Caracteristicas , Categoria , Condicion)
+// // Funcion para filtrar equipos en base a un items en especifico (  Estado , Usuario , Ubicacion ,MarcaModelo, Caracteristicas , Categoria , Condicion)
 
-  function Filtro (){
+//   function Filtro (){
 
-    const NewFilter = prompt("Indique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
-    const FilterItems = prompt(" Ingrese Items por el cual quiere filtrar ( Ejemplo: Estado => Asignado , Ubicacion => Santa Elisa , Usuario => Juan Perez etc...")
+//     const NewFilter = prompt("Indique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
+//     const FilterItems = prompt(" Ingrese Items por el cual quiere filtrar ( Ejemplo: Estado => Asignado , Ubicacion => Santa Elisa , Usuario => Juan Perez etc...")
 
 
-    switch (NewFilter) {
+//     switch (NewFilter) {
 
-      case 'Estado':
+//       case 'Estado':
 
-      const EstadoFiltro = laptop.filter((item) => item.Estado === FilterItems);
-        console.table(EstadoFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//       const EstadoFiltro = laptop.filter((item) => item.Estado === FilterItems);
+//         console.table(EstadoFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (EstadoFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con el Estado especificado");
+//         if (EstadoFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con el Estado especificado");
 
-            return;
-          }
+//             return;
+//           }
 
-        break;
+//         break;
 
-        case 'Usuario':
+//         case 'Usuario':
 
-        const UsuarioFiltro = laptop.filter((item) => item.Usuario === FilterItems);
-        console.table(UsuarioFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const UsuarioFiltro = laptop.filter((item) => item.Usuario === FilterItems);
+//         console.table(UsuarioFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (UsuarioFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con el Usuario especificado");
-            return;
-          }
-        break;
+//         if (UsuarioFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con el Usuario especificado");
+//             return;
+//           }
+//         break;
 
-        case 'Ubicacion':
+//         case 'Ubicacion':
 
-        const UbicacionFiltro = laptop.filter((item) => item.Ubicacion === FilterItems);
-        console.table(UbicacionFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const UbicacionFiltro = laptop.filter((item) => item.Ubicacion === FilterItems);
+//         console.table(UbicacionFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (UbicacionFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con la Ubicacion especificada");
+//         if (UbicacionFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con la Ubicacion especificada");
 
-            return;
-          }
-        break;
+//             return;
+//           }
+//         break;
 
-        case 'Caracteristicas':
+//         case 'Caracteristicas':
 
-        const CaracteristicasFiltro = laptop.filter((item) => item.Caracteristicas === FilterItems);
-        console.table(CaracteristicasFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const CaracteristicasFiltro = laptop.filter((item) => item.Caracteristicas === FilterItems);
+//         console.table(CaracteristicasFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (CaracteristicasFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con las Caracteristicas especificadas");
-            return;
-          }
-        break;
+//         if (CaracteristicasFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con las Caracteristicas especificadas");
+//             return;
+//           }
+//         break;
 
-        case 'NumeroSerie':
+//         case 'NumeroSerie':
 
-        const NumeroSerieFiltro = laptop.filter((item) => item.NumeroSerie === FilterItems);
-        console.table(NumeroSerieFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const NumeroSerieFiltro = laptop.filter((item) => item.NumeroSerie === FilterItems);
+//         console.table(NumeroSerieFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (NumeroSerieFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con las Caracteristicas especificadas");
-            return;
-          }
-        break;
+//         if (NumeroSerieFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con las Caracteristicas especificadas");
+//             return;
+//           }
+//         break;
 
-        case 'Categoria':
+//         case 'Categoria':
 
-        const CategoriaFiltro = laptop.filter((item) => item.Categoria === FilterItems);
-        console.table(CategoriaFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const CategoriaFiltro = laptop.filter((item) => item.Categoria === FilterItems);
+//         console.table(CategoriaFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (CategoriaFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con la Categoria especificada");
+//         if (CategoriaFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con la Categoria especificada");
 
-            return;
-          }
-        break;
+//             return;
+//           }
+//         break;
 
-        case 'Condicion':
+//         case 'Condicion':
 
-        const CondicionFiltro = laptop.filter((item) => item.Condicion === FilterItems);
-        console.table(CondicionFiltro);
-        console.log(" Tabla actualizada a la fecha :  " + new Date());
+//         const CondicionFiltro = laptop.filter((item) => item.Condicion === FilterItems);
+//         console.table(CondicionFiltro);
+//         console.log(" Tabla actualizada a la fecha :  " + new Date());
 
-        if (CondicionFiltro.length === 0) {
-            console.log("No se ha encontrado ningún elemento con la Condicion especificada");
+//         if (CondicionFiltro.length === 0) {
+//             console.log("No se ha encontrado ningún elemento con la Condicion especificada");
 
-            return;
-          }
-        break;
+//             return;
+//           }
+//         break;
 
 
-        default:
-            alert(NewFilter + "  No existe como parametro a filtrar en la tabla. Indique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
-            console.log(NewFilter + "  No existe como parametro a filrar en la tabla.ndique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
+//         default:
+//             alert(NewFilter + "  No existe como parametro a filtrar en la tabla. Indique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
+//             console.log(NewFilter + "  No existe como parametro a filrar en la tabla.ndique Items a filtrar: Estado , Usuario , Ubicacion , MarcaModelo , Caracteristicas , Categoria  , Condicion");
 
-    }
+//     }
 
 
 
-  }
+//   }
 
 
-
-// alert(" Bienvenido al Inventario tecnilogico. Lo que ve en pantalla es el inventario actual");
-
-// const pregunta1 =confirm ("¿Desea agregar un nuevo Equipo o Producto?")
-
-// if (pregunta1 === true){
-//     AddLaptop();
-
-// }
-// const pregunta2 =confirm ("¿Desea modificar algun equipo o producto?")
-
-// if(pregunta2 === true){
-
-//     ModLaptop();
-// }
-
-// const pregunta3 =confirm ("¿Desea Eliminar algun equipo o producto?")
-
-// if(pregunta3 === true){
-
-//     DelLaptop();
-// }
-
-// const pregunta4 =confirm ("¿Desea Filtrar por algun parametro de algun equipo o producto?")
-
-// if(pregunta4 === true){
-
-//     Filtro();
-// }
 
 
 
