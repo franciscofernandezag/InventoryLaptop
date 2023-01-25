@@ -6,25 +6,20 @@ function addUser(username, password) {
     username: username,
     password: password
   };
-  
   // Obtener la lista de usuarios almacenados en Local Storage
   let users = JSON.parse(localStorage.getItem("users"));
-  
   // Si la lista de usuarios no existe, crear una nueva
   if (!users) {
     users = [];
   }
-  
   // Agregar el nuevo usuario a la lista
   users.push(user);
-  
   // Guardar la lista de usuarios actualizada en Local Storage
   localStorage.setItem("users", JSON.stringify(users));
 }
 
-
 addUser("francisco", "123");
-addUser("angeles", "12345");
+addUser("carolina", "12345");
 
 function login() {
   // Obtener los valores del formulario de inicio de sesión
@@ -39,19 +34,23 @@ function login() {
   for (let i = 0; i < users.length; i++) {
     if (users[i].username == username && users[i].password == password) {
       valid = true;
-      
       break;
     }
   }
   if (valid === true) {
     // Establecer una variable de sesión en Local Storage
     localStorage.setItem("session", "true");
-   
     // Redirigir al usuario a la página principal
     window.location.href = "Inventario.html";
   } else {
     // Mostrar un mensaje de error al usuario
-    alert("Nombre de usuario o contraseña inválidos");
+
+    Swal.fire({
+      title: "Sin Acceso",
+      text: "Nombre de usuario o contraseña inválidos",
+      icon: "error",
+      timer: null,
+    });
   }
 }
 
